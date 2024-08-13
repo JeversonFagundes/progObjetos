@@ -23,23 +23,28 @@ class Livro
         if ($this->disponivel == true) {
             
             $this->disponivel = false;
+
+            echo "O '$this->titulo' foi emprestado.<br><br>";
         }
 
     }
     public function devolver() 
     {
         //Método que marca o livro como disponível (true).
-        $this->disponivel = true;
+        if ($this->disponivel == false) {
+            
+            $this->disponivel = true;
+
+            echo "O '$this->titulo' foi devolvido.<br><br>";
+        }
     }
     public function exibirDetalhes()
     {
-        // Método que retorna uma string com os detalhes do livro (título, autor, ano de publicação e status de disponibilidade).
         
-        return $this->titulo . " " . $this->autor . " " . $this->anoPublicacao . " ". $this->disponivel;
     }
     public function exibirTitulo() {
         //Método que retorna uma string contendo o título do livro.
 
-        return $this->titulo;
+        return "O titulo é '$this->titulo'";
     }
 }
