@@ -10,6 +10,8 @@ $data1->modificarMes();
 $data1->modificarAno();
 */
 
+$data1->avancarData(30);
+
 echo 'Dia = ' . ' ' . $data1->pegarDia() . '<br><br>';
 echo 'Mês = ' . ' '.$data1->pegarMes() . '<br><br>';
 echo 'Ano = ' . ' ' . $data1->pegarAno() . '<br><br>';

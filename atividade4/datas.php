@@ -20,12 +20,12 @@ class Datas
     public function modificarDia($dia)
     {
 
-        if ($dia <= 0 or $dia > 30) {
-
-            echo "Dia incompativel!";
-        } else {
+        if ($dia >= 1 and $dia <= 31) {
 
             $this->dia = $dia;
+        } else {
+
+            echo "Dia é invalido";
         }
     }
     public function pegarDia()
@@ -36,12 +36,12 @@ class Datas
     public function modificarMes($mes)
     {
 
-        if ($mes <= 0 or $mes > 12) {
-
-            echo "O mês é incompativel";
-        } else {
+        if ($mes >= 1 and  $mes <= 12) {
 
             $this->mes = $mes;
+        } else {
+
+            echo "O mês é incorreto";
         }
     }
     public function pegarMes()
@@ -52,14 +52,7 @@ class Datas
 
     public function modificarAno($ano)
     {
-
-        if ($ano <= 0 or $ano > 10000) {
-
-            echo "Ano incompativel";
-        } else {
-
-            $this->ano = $ano;
-        }
+        $this->ano = $ano;
     }
     public function pegarAno()
     {
@@ -73,8 +66,7 @@ class Datas
 
             echo "A data está completamente errada!";
 
-            die ();
-
+            die();
         } else {
 
             $array = array($this->dia, $this->mes, $this->ano);
@@ -84,12 +76,35 @@ class Datas
 
         return $dataCompleta;
     }
-    public function avancarData($num)  {
+    public function avancarData($num)
+    {
 
-        $dia = $this->dia;
+        $diasDoMes = $this->verificaDiasDoMes();
+
+        $dias = $this->dia + $num;
+
+        $this->modificarDia($dias);
+    }
+    public function verificaDiasDoMes()
+    {
+
         $mes = $this->mes;
-        $ano = $this->ano;
 
-        
+        if ($mes == 2) {
+
+            $diasDoMes = 28;
+        }
+
+        if ($mes == 4 or $mes == 6 or $mes == 9 or $mes == 11) {
+
+            $diasDoMes = 30;
+        }
+
+        if ($mes == 1 or $mes == 3 or $mes == 5 or $mes == 7 or $mes == 8 or $mes == 10 or $mes == 12) {
+
+            $diasDoMes = 31;
+        }
+
+        return $diasDoMes;
     }
 }
