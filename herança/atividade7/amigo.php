@@ -5,20 +5,23 @@ include_once("pessoa.php");
 class Amigo extends Pessoa
 {
 
-    private $dataDoAniversario;
+    private $diaDoAniversario;
 
-    public function __construct($nome, $idade, $sexo)
+    public function __construct($nome, $idade, $sexo, $diaDoAniversario)
     {
+
+        $this->diaDoAniversario = $diaDoAniversario;
         parent::__construct($nome, $idade, $sexo);
     }
-    public function getdataDoAniversario()
+
+    public function getDiaDoAniversario()
     {
 
-        return $this->dataDoAniversario;
+        return $this->diaDoAniversario;
     }
-    public function setdataDoAniversario($dataDoAniversario)
+    public function setDiaDoAniversario($diaDoAniversario)
     {
 
-        $this->dataDoAniversario = $dataDoAniversario;
+        $this->diaDoAniversario = $diaDoAniversario;
     }
 }
